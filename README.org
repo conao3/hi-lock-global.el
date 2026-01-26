@@ -21,7 +21,7 @@ When =hi-lock-global-mode= is enabled, patterns set by =highlight-regexp= and re
 * Install
 #+begin_src emacs-lisp
   (leaf hi-lock-global
-    :ensure t
+    :vc ( :url "https://github.com/conao3/hi-lock-global.el")
     :global-minor-mode hi-lock-global-mode)
 #+end_src
 
