@@ -5,86 +5,35 @@
 [[https://github.com/conao3/hi-lock-global.el/blob/master/LICENSE][https://img.shields.io/github/license/conao3/hi-lock-global.el.svg?style=flat-square]]
 [[https://github.com/conao3/hi-lock-global.el/releases][https://img.shields.io/github/tag/conao3/hi-lock-global.el.svg?style=flat-square]]
 [[https://github.com/conao3/hi-lock-global.el/actions][https://github.com/conao3/hi-lock-global.el/workflows/Main%20workflow/badge.svg]]
-[[https://app.codacy.com/project/conao3/hi-lock-global.el/dashboard][https://img.shields.io/codacy/grade/62a36f4f04524d5e8c758440e8071c45.svg?logo=codacy&style=flat-square]]
-[[https://www.patreon.com/conao3][https://img.shields.io/badge/patreon-become%20a%20patron-orange.svg?logo=patreon&style=flat-square]]
-[[https://twitter.com/conao_3][https://img.shields.io/badge/twitter-@conao__3-blue.svg?logo=twitter&style=flat-square]]
-[[https://conao3-support.slack.com/join/shared_invite/enQtNjUzMDMxODcyMjE1LWUwMjhiNTU3Yjk3ODIwNzAxMTgwOTkxNmJiN2M4OTZkMWY0NjI4ZTg4MTVlNzcwNDY2ZjVjYmRiZmJjZDU4MDE][https://img.shields.io/badge/chat-on_slack-blue.svg?logo=slack&style=flat-square]]
-
-* Table of Contents
-- [[#description][Description]]
-- [[#install][Install]]
-- [[#usage][Usage]]
-- [[#customize][Customize]]
-- [[#information][Information]]
-  - [[#community][Community]]
-  - [[#contribution][Contribution]]
-  - [[#migration][Migration]]
-  - [[#license][License]]
-  - [[#author][Author]]
-  - [[#contributors][Contributors]]
 
 * Description
 [[https://github.com/conao3/hi-lock-global.el][https://raw.githubusercontent.com/conao3/files/master/blob/hi-lock-global.el/hi-lock-global.gif]]
 
-hi-lock for all buffer.
+Apply hi-lock patterns globally across all buffers.
+
+When =hi-lock-global-mode= is enabled, patterns set by =highlight-regexp= and related commands are automatically applied to all existing buffers and new buffers.
 
 * Install
-Sample install code using [[https://github.com/conao3/leaf.el][leaf.el]].
-
 #+begin_src emacs-lisp
-  (leaf hi-lock-global :ensure t)
+  (leaf hi-lock-global
+    :ensure t
+    :global-minor-mode hi-lock-global-mode)
 #+end_src
 
 * Usage
+Just use the standard hi-lock commands with =hi-lock-global-mode= enabled:
+
+- =M-x highlight-regexp=
+- =M-x highlight-phrase=
+- =M-x highlight-symbol-at-point=
+- =M-x unhighlight-regexp=
 
 * Customize
+- =hi-lock-global-exclude-buffer-regexp= :: List of regexps for buffer names to exclude. Defaults to internal buffers (=` ...=) and special buffers (=*...*=).
 
-* Information
-** Community
-Any feedback or suggestions are welcome!
-
-You can use github issues, but you can also use [[https://conao3-support.slack.com/join/shared_invite/enQtNjUzMDMxODcyMjE1LWUwMjhiNTU3Yjk3ODIwNzAxMTgwOTkxNmJiN2M4OTZkMWY0NjI4ZTg4MTVlNzcwNDY2ZjVjYmRiZmJjZDU4MDE][Slack]]
-if you want a more casual conversation.
-
-** Contribution
-We welcome PR!
-
-*** Require tools for testing
-- keg
-  #+begin_src shell
-    cd ~/
-    hub clone conao3/keg .keg
-    export PATH="$HOME/.keg/bin:$PATH"
-  #+end_src
-
-*** Running test
-Below operation flow is recommended.
-#+begin_src shell
-  git branch [feature-branch]       # Create branch named [feature-branch]
-  git checkout [feature-branch]     # Checkout branch named [feature-branch]
-
-  # <edit loop>
-  emacs hi-lock-global.el             # Edit something you want
-
-  make test                         # Test hi-lock-global
-  git commit -am "brabra"           # Commit (auto-run test before commit)
-  # </edit loop>
-
-  hub fork                          # Create fork at GitHub
-  git push [user] [feature-branch]  # Push feature-branch to your fork
-  hub pull-request                  # Create pull-request
-#+end_src
-
-** Migration
-
-** License
+* License
 #+begin_example
   General Public License Version 3 (GPLv3)
   Copyright (c) Naoya Yamashita - https://conao3.com
   https://github.com/conao3/hi-lock-global.el/blob/master/LICENSE
 #+end_example
-
-** Author
-- Naoya Yamashita ([[https://github.com/conao3][conao3]])
-
-** Contributors
