@@ -1,0 +1,9 @@
+;; Keg
+
+(source gnu melpa)
+
+(package
+ (hi-lock-global
+  (recipe . (hi-lock-global :fetcher github :repo "conao3/hi-lock-global.el"))))
+
+(dev-dependency cort)
