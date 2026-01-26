@@ -7,6 +7,13 @@
 [[https://github.com/conao3/hi-lock-global.el/actions][https://github.com/conao3/hi-lock-global.el/workflows/Main%20workflow/badge.svg]]
 
 * Description
+:PROPERTIES:
+:ID:       73df09c4-287f-4793-8611-c131256c8c7d
+:END:
+
+#+DOWNLOADED: screenshot @ 2026-01-26 10:15:54
+[[file:./.github/img/97e5c243-4435-41a1-b2bf-079fc6600dd0.png]]
+
 Apply hi-lock patterns globally across all buffers.
 
 When =hi-lock-global-mode= is enabled, patterns set by =highlight-regexp= and related commands are automatically applied to all existing buffers and new buffers.
