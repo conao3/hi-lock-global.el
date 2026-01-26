@@ -82,12 +82,12 @@
   "Advice after `hi-lock-unface-buffer' to remove globally."
   (when hi-lock-global-mode
     (if (eq regexp t)
-        (let ((patterns hi-lock-global-patterns))
+        (progn
           (setq hi-lock-global-patterns nil)
           (dolist (buf (buffer-list))
             (unless (eq buf (current-buffer))
               (with-current-buffer buf
-                (when hi-lock-mode
+                (when (and hi-lock-mode hi-lock-interactive-patterns)
                   (hi-lock-unface-buffer t))))))
       (setq hi-lock-global-patterns
             (cl-remove-if (lambda (p) (equal (car p) regexp))
@@ -95,7 +95,8 @@
       (dolist (buf (buffer-list))
         (unless (eq buf (current-buffer))
           (with-current-buffer buf
-            (when hi-lock-mode
+            (when (and hi-lock-mode
+                       (assoc regexp hi-lock-interactive-patterns))
               (hi-lock-unface-buffer regexp))))))))
 
 (defun hi-lock-global--new-buffer-hook ()
